@@ -21,7 +21,7 @@ def Deploy(paths, args, version=None):
     version = _VersionName()
   with temp_deployment_dir.TempDeploymentDir(
       paths, use_symlinks=False) as temp_dir:
-    print 'Deploying from "%s".' % temp_dir
+    print ('Deploying from "%s".' % temp_dir)
 
     # google-cloud-sdk/bin/gcloud is a shell script, which we can't subprocess
     # on Windows with shell=False. So, execute the Python script directly.
@@ -30,9 +30,9 @@ def Deploy(paths, args, version=None):
     else:
       script_path = _FindScriptInPath('gcloud')
     if not script_path:
-      print 'This script requires the Google Cloud SDK to be in PATH.'
-      print 'Install at https://cloud.google.com/sdk and then run'
-      print '`gcloud components install app-engine-python`'
+      print('This script requires the Google Cloud SDK to be in PATH.')
+      print('Install at https://cloud.google.com/sdk and then run')
+      print('`gcloud components install app-engine-python`')
       sys.exit(1)
 
     subprocess.call([script_path, 'app', 'deploy', '--no-promote', '--quiet',

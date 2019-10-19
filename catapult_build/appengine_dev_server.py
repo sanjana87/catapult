@@ -19,11 +19,11 @@ def DevAppserver(paths, args):
     args: List of additional arguments to pass to the dev server.
   """
   with temp_deployment_dir.TempDeploymentDir(paths) as temp_dir:
-    print 'Running dev server on "%s".' % temp_dir
+    print('Running dev server on "%s".'%temp_dir)
 
     script_path = _FindScriptInPath('dev_appserver.py')
     if not script_path:
-      print 'This script requires the App Engine SDK to be in PATH.'
+      print('This script requires the App Engine SDK to be in PATH.')
       sys.exit(1)
 
     subprocess.call([sys.executable, script_path] + args + [temp_dir])

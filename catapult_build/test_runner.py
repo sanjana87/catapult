@@ -53,9 +53,9 @@ def Main(name, tests, argv):
           os.path.basename(test['path']), test['path'])
 
   if exit_code:
-    print _Color('Oops! Some tests failed.', RED), FAIL_EMOJI
+    print(_Color('Oops! Some tests failed.', RED), FAIL_EMOJI)
     sys.stderr.writelines(errors)
   else:
-    print _Color('Woho! All tests passed.', GREEN), PASS_EMOJI
+    print(_Color('Woho! All tests passed.', GREEN), PASS_EMOJI)
 
   sys.exit(exit_code)
